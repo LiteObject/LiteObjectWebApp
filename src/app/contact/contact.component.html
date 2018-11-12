@@ -1,0 +1,45 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Contact Form</mat-card-title>
+    <mat-card-subtitle>I would love to hear...</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="contactForm" novalidate>
+      <div formGroupName="personalData" novalidate class="contact-form-container">
+        <mat-form-field>
+            <input matInput placeholder="First Name" formControlName="firstName" required/>            
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Last Name" formControlName="lastName" required/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required/>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Mobile" formControlName="mobile" />
+        </mat-form-field>
+        <!--
+          <select formControlName="country">
+            <option *ngFor="let country of countries" [value]="country">{{
+              country
+            }}</option>
+          </select>
+        -->
+      </div>
+      <div class="contact-form-container">
+        <mat-form-field>
+          <textarea matInput placeholder="Message" formControlName="text" required></textarea>
+        </mat-form-field>
+        <mat-error *ngIf="!contactForm.pristine && contactForm.invalid">
+            This field is required.
+        </mat-error>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+      <button type="submit" mat-flat-button color="primary" (click)="onSubmit()" [disabled]="contactForm.pristine || contactForm.invalid">Save</button>
+      &nbsp;
+      <button type="reset" mat-flat-button color="warn" (click)="revert()" [disabled]="contactForm.pristine">Revert</button>
+  </mat-card-actions>
+</mat-card>

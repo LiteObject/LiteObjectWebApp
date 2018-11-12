@@ -1,0 +1,9 @@
+.example-card {
+  width: 75%;
+  margin: 0px auto;
+}
+
+  .example-header-image {
+    background-image: url('http://www.liteobject.com/Images/LO-Logo_48.png');
+    background-size: cover;
+  }
